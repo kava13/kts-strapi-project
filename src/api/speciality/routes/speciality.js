@@ -1,9 +1,18 @@
 "use strict";
 
-/**
- * speciality router
- */
+const { extendCoreRouter } = require("../../../utils/extendCoreRouter");
 
 const { createCoreRouter } = require("@strapi/strapi").factories;
 
-module.exports = createCoreRouter("api::speciality.speciality");
+const defaultRouter = createCoreRouter("api::speciality.speciality");
+
+module.exports = extendCoreRouter(defaultRouter, [
+  {
+    method: "GET",
+    path: "/specialties/get-by-slug/:slug",
+    handler: "speciality.findOneBySlug",
+    config: {
+      auth: false,
+    },
+  },
+]);
