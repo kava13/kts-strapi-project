@@ -1,5 +1,5 @@
 module.exports = () => ({
-    'drag-drop-content-types': {
-        enabled: true
-      }
+  "drag-drop-content-types": {
+    enabled: false,
+  },
 });
